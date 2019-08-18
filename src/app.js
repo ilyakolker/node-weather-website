@@ -5,7 +5,7 @@ const utils = require('./utils/geo_code');
 const utils_forecast = require('./utils/forecast');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 // Define paths for Express config
 const path_to_public_dir = path.join(__dirname, '../public');
 const view_path = path.join(__dirname, '../templates/views');
@@ -90,11 +90,11 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(`
 -------------------------------------
 -                                   -
--    use 'http://127.0.0.1:3000'    -
+-    use 'http://127.0.0.1:${port}  -
 -                                   -
 -------------------------------------`);
 })
